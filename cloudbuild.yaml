@@ -15,7 +15,7 @@ steps:
       - '--platform=managed'
       - '--region=us-central1'
       - '--port=8080' # Replace with your container port
-      - '--allow-authenticated' # Adjust as necessary
+      - '--allow-unauthenticated' # Adjust as necessary
 images:
   - 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/ayush-dockerimage:$COMMIT_SHA'
 
