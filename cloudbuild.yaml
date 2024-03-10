@@ -11,8 +11,3 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'my-cloud-run-service', '--image', 'gcr.io/$PROJECT_ID/firstname-studentid:$COMMIT_SHA', '--region', 'us-central1']
 
-options:
-  machineType: 'N1_HIGHCPU_8'
-  substitutionOption: ALLOW_LOOSE
-  logging: REGIONAL
-  defaultEventBasedLogging: 'true'
