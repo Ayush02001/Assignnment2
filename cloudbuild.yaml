@@ -1,7 +1,7 @@
 steps:
   # Step 1: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/ayush-dockerimage:$COMMIT_SHA', '-f', 'cloudbuild.yaml', '.']
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/ayush-dockerimage:$COMMIT_SHA', '-f', '.']
   # Step 2: Push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/ayush-dockerimage:$COMMIT_SHA']
@@ -18,6 +18,4 @@ steps:
       - '--allow-unauthenticated' # Adjust as necessary
 images:
   - 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/ayush-dockerimage:$COMMIT_SHA'
-options:
-  substitution_option: 'ALLOW_LOOSE'
-  logging: 'LEGACY'
+
