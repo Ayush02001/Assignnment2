@@ -18,7 +18,4 @@ steps:
       - '--allow-unauthenticated' # Adjust as necessary
 images:
   - 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/ayush-dockerimage:$COMMIT_SHA'
-options:
-  machineType: 'E2_HIGHCPU_8'  # Use E2 variant instead of N1
-  substitution_option: 'ALLOW_LOOSE'
-  logging: 'LEGACY'
+
