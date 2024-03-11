@@ -21,4 +21,4 @@ images:
 options:
   machineType: 'E2_HIGHCPU_8'  # Adjust as necessary
   logging: CLOUD_LOGGING_ONLY  # Adjust logging options
-  serviceAccount: 'your-service-account@your-project-id.iam.gserviceaccount.com'  # Replace with your service account
+  serviceAccount: 'i-freedom-412206'  
