@@ -5,6 +5,6 @@ steps:
   args: ['build', '-t', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA', '.']
   # Push docker image to artifactory
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/i-freedom-412206/panchal-100921125/node-app:$COMMIT_SHA']
+  args: ['push', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA']
 options:
   defaultLogsBucketBehavior : REGIONAL_USER_OWNED_BUCKET
