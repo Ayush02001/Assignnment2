@@ -13,7 +13,7 @@ steps:
     args:
       - '-c'
       - |
-        gcloud run deploy YOUR_SERVICE_NAME \
+        gcloud run node-app \
           --image us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA \
           --platform managed \
           --region us-central1
