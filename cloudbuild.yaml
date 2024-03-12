@@ -1,10 +1,21 @@
 # cloudbuild.yaml
+
 steps:
-# Build Docker image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA', '.']
+  # Build Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA', '.']
   # Push docker image to artifactory
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA']
+  # Deploy Docker container to Cloud Run using Google Cloud SDK
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud run deploy YOUR_SERVICE_NAME \
+          --image us-central1-docker.pkg.dev/i-freedom-412206/ayush-100921125/node-app:$COMMIT_SHA \
+          --platform managed \
+          --region us-central1
 options:
-  defaultLogsBucketBehavior : REGIONAL_USER_OWNED_BUCKET
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
